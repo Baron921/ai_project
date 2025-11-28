@@ -27,9 +27,8 @@ class RandomStrategy(Strategy):
     
     def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
         
-        if legal_moves is not None:
-            choice = random.choice(legal_moves)
-            return choice
+        if legal_moves is not None: 
+            return random.choice(legal_moves)
         return None
     
 
@@ -41,12 +40,9 @@ class GreedyMaxDegreeStrategy(Strategy):
     """
     def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
         moves = legal_moves
-        print("Les moves: ",moves)
         node_degree_of_freedom = []
         for move in moves:
-            #print("Un move: ", move)
             cpt = 0
-            #print("Liste des visités: ", state.occupied)
             for visited in state.occupied:
                 if move.to_node in state.G[visited]:
                     cpt += 1
