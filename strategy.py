@@ -29,10 +29,8 @@ class RandomStrategy(Strategy):
         
         if legal_moves is not None:
             choice = random.choice(legal_moves)
-            #print(f"State: {state} || Player: {player} || Moves:  {legal_moves}")
             return choice
         return None
-    # TODO: implement this class
     
 
 class GreedyMaxDegreeStrategy(Strategy):
@@ -50,20 +48,13 @@ class GreedyMaxDegreeStrategy(Strategy):
             cpt = 0
             #print("Liste des visités: ", state.occupied)
             for visited in state.occupied:
-                #print("Dàja visité: ", visited, )
-                #print("Suivant du déjà visité:", state.G[visited])
                 if move.to_node in state.G[visited]:
-                    #print(f"Node {move.to_node} trouvé dans {state.G[visited]}")
                     cpt += 1
             node_degree_of_freedom.append(cpt)     
-            #print(f"\tMove: {move} ||  {move.to_node} a été trouvé {cpt} fois")
         indices = [i for i, degree in enumerate(node_degree_of_freedom) if degree == min(node_degree_of_freedom)]
         
         chosen_move = legal_moves[random.choice(indices)]
-        #print(f"{node_degree_of_freedom} || Choosen move: {chosen_move}")
         return chosen_move
-    
-    # TODO: implement this class
 
 
 # TODO: You should implement your own strategies here (Minimax, MCTS, etc.)
