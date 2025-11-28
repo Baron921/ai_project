@@ -1,0 +1,4 @@
+# Ignorer l'environnement virtuel lors des opérations git
+/venv
+
+
