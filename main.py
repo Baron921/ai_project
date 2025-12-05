@@ -10,7 +10,7 @@ def parse_args():
     ap = argparse.ArgumentParser(description="Snake-in-the-Box Game Runner")
     ap.add_argument("--graph", type=str, default="erdos", choices=["erdos", "cube"], help="Graph type")
     ap.add_argument("--n", type=int, default=30, help="Graph size (Erdos-Renyi)")
-    ap.add_argument("--p", type=float, default=0.08, help="Edge probability (Erdos-Renyi)")
+    ap.add_argument("--p", type=float, default=0.15, help="Edge probability (Erdos-Renyi)")
     ap.add_argument("--d", type=int, default=5, help="Dimension for hypercube")
     ap.add_argument("--s0", type=str, default="random", help="Strategy for player 0")
     ap.add_argument("--s1", type=str, default="random", help="Strategy for player 1")
