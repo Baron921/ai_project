@@ -1,6 +1,5 @@
 from typing import List, Optional
 from logic import GameState, Move
-import random
 
 # This file as well as utils.py should be the only ones you have to edit!
 
@@ -20,17 +19,19 @@ class Strategy:
         """
         raise NotImplementedError
 
+
 class RandomStrategy(Strategy):
+    def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
+        import random
+        print("legalmove is => ",legal_moves)
+        if(legal_moves):
+            return random.choice(legal_moves)
+
     """
     Pick a random legal move.
     """
-    
-    def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
-        
-        if legal_moves is not None: 
-            return random.choice(legal_moves)
-        return None
-    
+    # TODO: implement this class
+
 
 class GreedyMaxDegreeStrategy(Strategy):
     """
@@ -38,19 +39,7 @@ class GreedyMaxDegreeStrategy(Strategy):
 
     Simple and explainable baseline.
     """
-    def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
-        moves = legal_moves
-        node_degree_of_freedom = []
-        for move in moves:
-            cpt = 0
-            for visited in state.occupied:
-                if move.to_node in state.G[visited]:
-                    cpt += 1
-            node_degree_of_freedom.append(cpt)     
-        indices = [i for i, degree in enumerate(node_degree_of_freedom) if degree == min(node_degree_of_freedom)]
-        
-        chosen_move = legal_moves[random.choice(indices)]
-        return chosen_move
+    # TODO: implement this class
 
 
 # TODO: You should implement your own strategies here (Minimax, MCTS, etc.)
