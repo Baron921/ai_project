@@ -23,7 +23,10 @@ class Strategy:
 class RandomStrategy(Strategy):
     def select_move(self, state: GameState, player: int, legal_moves: List[Move]):
         import random
+<<<<<<< HEAD
         print("legalmove is => ",legal_moves)
+=======
+>>>>>>> 0eb25d025969d19b193ae962bcf6f0af6176ff29
         if(legal_moves):
             return random.choice(legal_moves)
 
